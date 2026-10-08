@@ -1,0 +1,301 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* 전체 화면 */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+
+  transition:
+    background 0.5s ease,
+    color 0.5s ease;
+}
+
+/* 집중 / 휴식 배경 */
+
+.app.study {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      #30343b 0%,
+      #191b1f 45%,
+      #101114 100%
+    );
+}
+
+.app.break {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      #30382f 0%,
+      #191e1a 45%,
+      #101210 100%
+    );
+}
+
+/* 카드 */
+
+.timer-card {
+  width: min(440px, 100%);
+  padding: 32px;
+
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(20px);
+}
+
+/* 상단 */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #f4f4f5;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.logo-dot {
+  width: 10px;
+  height: 10px;
+
+  background: #f1f1f1;
+  border-radius: 50%;
+
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+.session-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #92959c;
+  font-size: 13px;
+}
+
+.session-count strong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  color: #f5f5f5;
+  background: rgba(255, 255, 255, 0.08);
+
+  border-radius: 9px;
+}
+
+/* 현재 상태 */
+
+.mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 55px;
+
+  color: #a9acb2;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mode-dot {
+  width: 7px;
+  height: 7px;
+
+  background: #f0f0f0;
+  border-radius: 50%;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* 타이머 */
+
+.timer-area {
+  margin-top: 18px;
+}
+
+.timer {
+  color: #f7f7f8;
+
+  font-size: clamp(76px, 18vw, 108px);
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: -5px;
+  font-variant-numeric: tabular-nums;
+
+  text-align: center;
+
+  text-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 진행률 */
+
+.progress {
+  height: 5px;
+
+  margin-top: 32px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.progress-value {
+  height: 100%;
+
+  background: #e9e9ea;
+  border-radius: 999px;
+
+  transition: width 1s linear;
+}
+
+/* 설명 */
+
+.message {
+  margin: 25px 0 0;
+
+  color: #858890;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 버튼 */
+
+.controls {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+button {
+  border: 0;
+  font: inherit;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    opacity 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.main-button {
+  flex: 1;
+
+  height: 56px;
+
+  color: #17181b;
+  background: #f1f1f1;
+
+  border-radius: 14px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.main-button:hover {
+  background: white;
+  transform: translateY(-1px);
+}
+
+.reset-button {
+  width: 56px;
+  height: 56px;
+
+  color: #c5c6ca;
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  font-size: 24px;
+}
+
+.reset-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* 하단 */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 26px;
+
+  color: #676a71;
+  font-size: 12px;
+}
+
+.divider {
+  color: #45474c;
+}
+
+/* 모바일 */
+
+@media (max-width: 480px) {
+  .app {
+    padding: 16px;
+  }
+
+  .timer-card {
+    padding: 26px 22px;
+    border-radius: 24px;
+  }
+
+  .mode {
+    margin-top: 42px;
+  }
+
+  .timer {
+    font-size: 72px;
+    letter-spacing: -4px;
+  }
+}
